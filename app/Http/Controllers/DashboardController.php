@@ -13,6 +13,6 @@ class DashboardController extends Controller
         $totalSiswa = Siswa::count(); // Dynamic count of students
         $absenHariIni = Absensi::whereDate('created_at', Carbon::today())->count(); // Count of today's attendance
 
-        return view('dashboard', compact('totalKelas', 'totalSiswa', 'absenHariIni'));
+        return view('siswa.landing', compact('totalKelas', 'totalSiswa', 'absenHariIni'));
     }
 }

@@ -60,32 +60,31 @@
         }
     </style>
 </head>
+<!-- resources/views/dashboard.blade.php -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar { /* Sidebar styling */ }
+        .content { margin-left: 240px; padding: 20px; background-color: #f8f9fa; min-height: 100vh; }
+        /* Add other styles here */
+    </style>
+</head>
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="text-center py-4">
-            <h4>ADMINISTRATOR</h4>
-            <p>Laudzaun Instanfa, S.Kom</p>
-            <p>Online</p>
-        </div>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">xxxxxxxx</a>
-        <a href="#">Logout</a>
-    </div>
-
+    @include('components.sidebar')
     <!-- Main Content -->
     <div class="content">
         <div class="container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>SMPN 1 NOGOSARI</h2>
-                <a href="{{ route('loginform') }}" class="btn btn-primary">Login</a>
+                <a href="{{ route('siswa.landing') }}" class="btn btn-primary">Logout</a>
             </div>
-            <!-- Summary Cards -->
             <div class="row mb-4">
                 <div class="col-md-3">
                     <div class="card text-center">
@@ -139,8 +138,11 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
+
 </html>

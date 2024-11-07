@@ -50,7 +50,7 @@
             // Alihkan halaman ke halaman scan kartu setelah 3 detik
             setTimeout(() => {
                 window.location.href = "{{ route('siswa.scan') }}";
-            }, 3000);
+            }, 30000);
         });
     </script>
 </head>

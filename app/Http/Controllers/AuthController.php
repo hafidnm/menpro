@@ -26,7 +26,7 @@ class AuthController extends Controller
         // Pengecekan username dan password secara manual
         if ($request->username === 'admin' && $request->password === '123') {
             Session::put('auth', true); // Simpan autentikasi di sesi
-            return redirect()->route('siswa.index'); // Arahkan ke halaman index siswa
+            return redirect()->route('siswa.dashboard'); // Arahkan ke halaman index siswa
         }
 
         // Kembalikan pesan kesalahan jika login gagal
@@ -37,6 +37,6 @@ class AuthController extends Controller
     public function logout()
     {
         Session::forget('auth'); // Hapus autentikasi dari sesi
-        return redirect()->route('siswa.dashboard'); // Arahkan ke halaman login
+        return redirect()->route('siswa.landing'); // Arahkan ke halaman login
     }
 }
