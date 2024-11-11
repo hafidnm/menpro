@@ -7,6 +7,7 @@
             <h4 class="mb-0">Selamat Datang</h4>
         </div>
         <div>
+            <a href="/">Home</a>
             <a href="/profil">Profil</a>
             <a href="/tentangkami">Tentang Kami</a>
             <a href="/kontak">Kontak</a>

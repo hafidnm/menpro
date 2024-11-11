@@ -6,35 +6,46 @@
     <title>Form Pendaftaran Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa; /* Light gray background */
-            margin: 0;
-    padding: 0;
+        /* Warna tema biru muda */
+        :root {
+            --primary-blue: #89CFF0; /* Warna biru muda */
         }
+
+        body {
+            background-color: var(--primary-blue); /* Latar belakang biru muda */
+            margin: 0;
+            padding: 0;
+        }
+
         .container {
-            background-color: white;
+            background-color: white; /* Background putih untuk form */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
             padding: 30px;
             margin-top: 50px;
             max-width: 500px;
         }
+
         h1 {
             color: #0d6efd; /* Blue heading */
             text-align: center;
             margin-bottom: 20px;
         }
+
         .form-label {
             font-weight: bold;
         }
+
         .btn-primary {
             width: 100%;
             border-radius: 5px;
             transition: all 0.3s;
         }
+
         .btn-primary:hover {
             opacity: 0.9;
         }
+
         .alert {
             text-align: center;
             font-size: 0.9em;
@@ -44,6 +55,7 @@
 </head>
 <body>
     @include('components.sidebar')
+    
     <div class="container">
         <h1>Form Pendaftaran Siswa</h1>
 
@@ -100,3 +112,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+ 

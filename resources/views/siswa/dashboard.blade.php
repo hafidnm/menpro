@@ -6,21 +6,28 @@
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        
+        /* Warna biru sesuai dengan warna sebelumnya */
+        :root {
+            --primary-blue: #89CFF0;
+            --biru-tua: #1e90ff;
+            --text-color: #121212;
+            --card-bg-color: #f8f9fa;
+            --btn-hover-color: #1e90ff;
+        }
 
         /* Content styling */
         .content {
             margin-left: 240px;
             padding: 20px;
-            background-color: #fff; /* Dark background */
-            color: #f8f9fa;
+            background-color: var(--primary-blue); /* Biru muda sebagai latar belakang konten */
+            color: var(--text-color);
             min-height: 100vh;
         }
 
         /* Card styling */
         .card {
-            background-color: #0d6efd; /* Dark card background */
-            color: #f8f9fa;
+            background-color: var(--card-bg-color); /* Background card putih */
+            color: var(--text-color);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
             border: none;
             transition: transform 0.2s;
@@ -29,24 +36,24 @@
             transform: scale(1.02); /* Slight zoom on hover */
         }
         .card-title {
-            color: #fff; /* Bright blue for title */
+            color: var(); /* Biru muda untuk judul kartu */
         }
 
         /* Button styling */
         .btn-light {
-            color: #fff;
-            border: 1px solid #0dcaf0;
-            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid var(--biru-tua);
+            background-color: var(--biru-tua); /* Tombol biru muda */
             transition: all 0.3s;
         }
         .btn-light:hover {
-            background-color: #0dcaf0;
+            background-color: var(--btn-hover-color); /* Warna hover biru lebih gelap */
             color: white;
         }
 
         /* Custom header styling */
         h2 {
-            color: #0d6efd;
+            color: var(--primary-blue); /* Biru muda untuk heading utama */
         }
     </style>
 </head>
@@ -60,7 +67,7 @@
         <div class="container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>SMPN 1 NOGOSARI</h2>
-                <a href="{{ route('siswa.landing') }}" class="btn btn-primary">Logout</a>
+                <a href="{{ route('siswa.landing') }}" class="btn btn-danger">Logout</a>
             </div>
 
             <div class="row mb-4">

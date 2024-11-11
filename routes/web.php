@@ -19,22 +19,44 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Route yang membutuhkan autentikasi
 // Route::middleware('auth')->group(function () {
-    Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard'])->name('siswa.dashboard');
+Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard'])->name('siswa.dashboard');
 
-    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
-    Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
-    Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+
+
+
+// Route untuk scan RFID
+Route::get('/siswa/scan', function () {
+    return view('siswa.scan');
+})->name('siswa.scan');
+
+Route::post('/siswa/read', [SiswaController::class, 'read'])->name('siswa.read');
+Route::get('/siswa/{rfid_id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::delete('/siswa/{rfid_id}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+Route::post('/siswa/absen', [SiswaController::class, 'storeAbsensi'])->name('siswa.absen');
+Route::put('/siswa/{rfid_id}', [SiswaController::class, 'update'])->name('siswa.update');
+
+
+//route profil
+Route::get('/profil', function () {
+    return view('siswa.profil'); // Menampilkan view profil.blade.php
+})->name('profil');
+
+
+
+//route tentang kami
+// routes/web.php
+Route::get('/tentangkami', function () {
+    return view('siswa.tentang-kami');
+})->name('tentang-kami');
+
+// routes/web.php
+Route::get('/kontak', function () {
+    return view('siswa.kontak');
+})->name('kontak');
+
+
     
-
-
-    // Route untuk scan RFID
-    Route::get('/siswa/scan', function () {
-        return view('siswa.scan');
-    })->name('siswa.scan');
-
-    Route::post('/siswa/read', [SiswaController::class, 'read'])->name('siswa.read');
-    Route::get('/siswa/{rfid_id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
-    Route::delete('/siswa/{rfid_id}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
-    Route::post('/siswa/absen', [SiswaController::class, 'storeAbsensi'])->name('siswa.absen');
-    Route::put('/siswa/{rfid_id}', [SiswaController::class, 'update'])->name('siswa.update');
 // });

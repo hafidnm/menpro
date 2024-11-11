@@ -6,15 +6,22 @@
     <title>Daftar Siswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* Warna tema biru */
+        :root {
+            --primary-blue: #89CFF0; /* Biru muda untuk latar belakang */
+        }
+
         body {
-            background-color: #f8f9fa; /* Light gray background */
+            background-color: var(--primary-blue); /* Latar belakang halaman biru muda */
             margin: 0;
             padding: 0;
+            color: #121212;
         }
+
         /* Sidebar styling */
         .sidebar {
             height: 100vh;
-            background-color: #0d6efd; /* Blue */
+            background-color: #0d6efd; /* Warna biru untuk sidebar */
             color: white;
             position: fixed;
             width: 240px;
@@ -33,6 +40,7 @@
         .sidebar a:hover {
             background-color: #0a58ca; /* Darker blue on hover */
         }
+
         /* Main content styling */
         .main-content {
             margin-left: 240px; /* Sesuaikan dengan lebar sidebar */
@@ -46,14 +54,16 @@
             margin-top: 30px;
         }
         h2 {
-            color: #0d6efd; /* Blue heading */
+            color: #0d6efd; /* Heading berwarna biru */
         }
-        .btn-primary, .btn-success, .btn-warning, .btn-info, .btn-danger {
+        .btn-primary, .btn-secondary, .btn-danger {
             border-radius: 5px;
+            color: white;
+            border: none;
             transition: all 0.3s;
         }
-        .btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-info:hover, .btn-danger:hover {
-            opacity: 0.8;
+        .btn-primary:hover, .btn-secondary:hover, .btn-danger:hover {
+            opacity: 0.9;
         }
         .table-striped>tbody>tr:nth-of-type(odd) {
             background-color: #e9ecef;

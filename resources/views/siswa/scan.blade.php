@@ -6,33 +6,44 @@
     <title>Scan RFID</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-            margin: 0;
-    padding: 0;
+        /* Warna tema biru muda */
+        :root {
+            --primary-blue: #89CFF0; /* Biru muda */
         }
+
+        body {
+            background-color: var(--primary-blue); /* Latar belakang biru muda */
+            margin: 0;
+            padding: 0;
+        }
+
         .container {
-            background-color: white;
+            background-color: white; /* Background putih untuk kontainer */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 30px;
             margin-top: 50px;
             max-width: 500px;
         }
+
         h2 {
-            color: #0d6efd;
+            color: #0d6efd; /* Warna heading biru */
             text-align: center;
             margin-bottom: 20px;
         }
+
         .form-label {
             font-weight: bold;
         }
+
         .alert {
             text-align: center;
         }
+
         .student-data {
             margin-top: 20px;
         }
+
         .student-data img {
             display: block;
             margin: 0 auto;
@@ -42,7 +53,8 @@
     </style>
 </head>
 <body onload="document.getElementById('rfid_id').focus()">
-@include('components.sidebar')
+    @include('components.sidebar')
+    
     <div class="container">
         <h2>Scan RFID</h2>
         <form action="{{ route('siswa.read') }}" method="POST">
