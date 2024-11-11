@@ -3,143 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Landing Page - Dark Mode</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Sidebar styling */
-        .sidebar {
-            height: 100vh;
-            background-color: #0d6efd; /* Blue */
-            color: white;
-            position: fixed;
-            width: 240px;
-            transition: all 0.3s ease;
-        }
-        .sidebar h4, .sidebar p {
-            color: white;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 12px 20px;
-            transition: background-color 0.2s;
-        }
-        .sidebar a:hover {
-            background-color: #0a58ca; /* Darker blue on hover */
+        /* Dark Mode Colors */
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --highlight-color: #bb86fc;
+            --secondary-text-color: #a0a0a0;
+            --card-bg-color: #1e1e1e;
+            --button-color: #03dac5;
+            --button-hover-color: #018786;
         }
 
         /* Content styling */
         .content {
-            margin-left: 240px;
-            padding: 20px;
-            background-color: #f8f9fa; /* Light gray background */
+            padding: 60px;
+            background-color: var(--bg-color);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+        }
+
+        /* Welcome Section Styling */
+        .welcome-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
         }
         
-        /* Card styling */
-        .card {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a more professional look */
-            border: none;
-            transition: transform 0.2s;
+        .welcome-text h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
-        .card:hover {
-            transform: scale(1.02); /* Slight zoom on hover for interactivity */
+        
+        .welcome-text p {
+            font-size: 1.25rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
         }
-        .card-title {
-            color: #0d6efd; /* Blue for title */
+
+        .btn-login {
+            background-color: var(--button-color);
+            color: #000000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
         }
-        .btn-light {
-            color: #0d6efd;
-            border: 1px solid #0d6efd;
-            transition: all 0.3s;
+        
+        .btn-login:hover {
+            background-color: var(--button-hover-color);
+            color: #ffffff;
         }
-        .btn-light:hover {
-            background-color: #0d6efd;
-            color: white;
+        
+        .image-frame {
+            border: 3px solid var(--card-bg-color);
+            border-radius: 15px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            flex: 1;
+            max-width: 550px;
+            background-color: var(--card-bg-color);
         }
-    </style>
-</head>
-<!-- resources/views/dashboard.blade.php -->
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .sidebar { /* Sidebar styling */ }
-        .content { margin-left: 240px; padding: 20px; background-color: #f8f9fa; min-height: 100vh; }
-        /* Add other styles here */
+
+        .school-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Decorative line at the top of image */
+        .image-frame::before {
+            content: '';
+            display: block;
+            height: 5px;
+            width: 80px;
+            background-color: var(--highlight-color);
+            margin-bottom: 12px;
+            border-radius: 5px;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+        }
+
+        .image-frame {
+            position: relative;
+        }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    @include('components.navbar-landing') <!-- Panggil file navbar-landing.blade.php -->
+
     <!-- Main Content -->
     <div class="content">
-        <div class="container mt-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>SMPN 1 NOGOSARI</h2>
-                <a href="{{ route('loginform') }}" class="btn btn-primary">Login</a>
+        <div class="welcome-section">
+            <!-- Text Section -->
+            <div class="welcome-text">
+                <h1>Selamat datang <br> di Presensi Online <br> SMPN 1 Nogosari</h1>
+                <p>SMP Negeri 1 Nogosari berkarakter hebat jaya</p>
+                <a href="{{ route('loginform') }}" class="btn-login">Login ➔</a>
             </div>
-            <div class="row mb-4">
-                <div class="col-md-3">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Jumlah Kelas</h5>
-                            <p class="card-text fs-4">{{ $totalKelas }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Jumlah Siswa</h5>
-                            <p class="card-text fs-4">{{ $totalSiswa }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Sudah Absen</h5>
-                            <p class="card-text fs-4">{{ $absenHariIni }}</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Image Section -->
+            <div class="image-frame">
+                <img src="{{ asset('storage/SMP.jpeg') }}" alt="School Image" class="school-image">
             </div>
-            
-            <!-- Application Buttons -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Selamat Datang di Website Resmi SMPN 1 Nogosari</h5>
-                    <p>Silahkan klik menu-menu yang tersedia:</p>
-                    <div class="row text-center">
-                        <div class="col-md-3"><button class="btn btn-light w-100 mb-2" href="{{ url('/siswa/scan') }}" class="btn btn-warning">Absen</button></div>
-                        <div class="col-md-3"><button class="btn btn-light w-100 mb-2">Menu</button></div>
-                        <div class="col-md-3"><button class="btn btn-light w-100 mb-2">Halaman</button></div>
-                        <div class="col-md-3"><button class="btn btn-light w-100 mb-2">Berita</button></div>
-                        <!-- Add more buttons as needed to match your layout -->
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Attendance Chart -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Grafik Absensi</h5>
-                    <div id="attendance-chart">
-                        <!-- Integrate a chart library here to display attendance data -->
-                        Grafik Absensi
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
-
 </html>
