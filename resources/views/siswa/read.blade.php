@@ -44,13 +44,13 @@
     </style>
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
-            // Kirim form secara otomatis saat halaman dimuat
-            document.getElementById('autoSubmitForm').submit();
-
-            // Alihkan halaman ke halaman scan kartu setelah 3 detik
+            // Kirim form setelah beberapa detik
             setTimeout(() => {
-                window.location.href = "{{ route('siswa.scan') }}";
-            }, 30000);
+                document.getElementById('autoSubmitForm').submit();
+            }, 3000); // 3000 ms = 3 detik
+
+            // Alihkan halaman ke halaman scan kartu setelah 3 menit
+            
         });
     </script>
 </head>

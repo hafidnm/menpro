@@ -8,6 +8,8 @@
     <style>
         body {
             background-color: #f8f9fa; /* Light gray background */
+            margin: 0;
+    padding: 0;
         }
         .container {
             background-color: white;
@@ -41,6 +43,7 @@
     </style>
 </head>
 <body>
+    @include('components.sidebar')
     <div class="container">
         <h1>Form Pendaftaran Siswa</h1>
 

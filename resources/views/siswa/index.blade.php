@@ -8,6 +8,35 @@
     <style>
         body {
             background-color: #f8f9fa; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+        /* Sidebar styling */
+        .sidebar {
+            height: 100vh;
+            background-color: #0d6efd; /* Blue */
+            color: white;
+            position: fixed;
+            width: 240px;
+            transition: all 0.3s ease;
+        }
+        .sidebar h4, .sidebar p {
+            color: white;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+            transition: background-color 0.2s;
+        }
+        .sidebar a:hover {
+            background-color: #0a58ca; /* Darker blue on hover */
+        }
+        /* Main content styling */
+        .main-content {
+            margin-left: 240px; /* Sesuaikan dengan lebar sidebar */
+            padding: 20px;
         }
         .container {
             background-color: white;
@@ -43,71 +72,76 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="color-secondary">Daftar Siswa</h2>
-            <!-- Tombol Logout -->
-            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                @csrf
-                <button type="submit" class="btn btn-danger">Logout</button>
-            </form>
-        </div>
-        
-        <!-- Tombol Aksi -->
-        <div class="mb-3">
-            <a href="{{ route('siswa.create') }}" class="btn btn-secondary">Tambah Siswa</a>
-            <a href="{{ url('/siswa/scan') }}" class="btn btn-secondary">Simulasi Absen</a>
-            <a href="{{ url('/siswa/read') }}" class="btn btn-secondary">Read Siswa</a>
-        </div>
+    <!-- Sidebar -->
+    @include('components.sidebar')
 
-        <!-- Tabel Daftar Siswa -->
-        <table class="table table-striped table-bordered">
-        <thead class="table-primary">
-    <tr>
-        <th>Foto</th>
-        <th>NIS</th>
-        <th>Nama</th>
-        <th>Kelas</th>
-        <th>ID RFID</th>
-        <th>Status Absensi</th> <!-- Kolom baru untuk status absensi -->
-        <th>Aksi</th> <!-- Kolom aksi untuk edit dan hapus -->
-    </tr>
-</thead>
-<tbody>
-    @foreach($siswas as $siswa)
-        <tr>
-            <td>
-                @if($siswa->gambar)
-                    <img src="{{ asset('storage/' . $siswa->gambar) }}" alt="Foto {{ $siswa->nama }}" width="80" height="80">
-                @else
-                    <span class="text-muted">Tidak ada foto</span>
-                @endif
-            </td>
-            <td>{{ $siswa->nis }}</td>
-            <td>{{ $siswa->nama }}</td>
-            <td>{{ $siswa->kelas }}</td>
-            <td>{{ $siswa->rfid_id }}</td>
-            <td>{{ $siswa->status_absensi ? 'Sudah Absen' : 'Belum Absen' }}</td> <!-- Menampilkan status absensi -->
-            <td>
-                <!-- Tombol Edit -->
-                <a href="{{ route('siswa.edit', $siswa->rfid_id) }}" class="btn btn-primary btn-sm">Edit</a>
-                
-                <!-- Tombol Hapus dengan konfirmasi -->
-                <form action="{{ route('siswa.destroy', $siswa->rfid_id) }}" method="POST" style="display:inline;">
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="color-secondary">Daftar Siswa</h2>
+                <!-- Tombol Logout -->
+                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Hapus</button>
+                    <button type="submit" class="btn btn-danger">Logout</button>
                 </form>
-            </td>
-        </tr>
-    @endforeach
-</tbody>
-        </table>
+            </div>
+            
+            <!-- Tombol Aksi -->
+            <div class="mb-3">
+                <a href="{{ route('siswa.create') }}" class="btn btn-secondary">Tambah Siswa</a>
+                <a href="{{ url('/siswa/scan') }}" class="btn btn-secondary">Simulasi Absen</a>
+            </div>
 
-        <!-- Pesan jika tidak ada siswa terdaftar -->
-        @if($siswas->isEmpty())
-            <div class="alert alert-warning mt-3">Tidak ada siswa yang terdaftar.</div>
-        @endif
+            <!-- Tabel Daftar Siswa -->
+            <table class="table table-striped table-bordered">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Foto</th>
+                        <th>NIS</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>ID RFID</th>
+                        <th>Status Absensi</th> <!-- Kolom baru untuk status absensi -->
+                        <th>Aksi</th> <!-- Kolom aksi untuk edit dan hapus -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($siswas as $siswa)
+                        <tr>
+                            <td>
+                                @if($siswa->gambar)
+                                    <img src="{{ asset('storage/' . $siswa->gambar) }}" alt="Foto {{ $siswa->nama }}" width="80" height="80">
+                                @else
+                                    <span class="text-muted">Tidak ada foto</span>
+                                @endif
+                            </td>
+                            <td>{{ $siswa->nis }}</td>
+                            <td>{{ $siswa->nama }}</td>
+                            <td>{{ $siswa->kelas }}</td>
+                            <td>{{ $siswa->rfid_id }}</td>
+                            <td>{{ $siswa->status_absensi ? 'Sudah Absen' : 'Belum Absen' }}</td> <!-- Menampilkan status absensi -->
+                            <td>
+                                <!-- Tombol Edit -->
+                                <a href="{{ route('siswa.edit', $siswa->rfid_id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                
+                                <!-- Tombol Hapus dengan konfirmasi -->
+                                <form action="{{ route('siswa.destroy', $siswa->rfid_id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <!-- Pesan jika tidak ada siswa terdaftar -->
+            @if($siswas->isEmpty())
+                <div class="alert alert-warning mt-3">Tidak ada siswa yang terdaftar.</div>
+            @endif
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

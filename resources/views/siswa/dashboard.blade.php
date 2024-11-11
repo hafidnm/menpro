@@ -6,41 +6,20 @@
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Sidebar styling */
-        .sidebar {
-            height: 100vh;
-            background-color: #0d6efd; /* Blue */
-            color: white;
-            position: fixed;
-            width: 240px;
-            transition: all 0.3s ease;
-        }
-        .sidebar h4, .sidebar p {
-            color: white;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 12px 20px;
-            transition: background-color 0.2s;
-        }
-        .sidebar a:hover {
-            background-color: #0a58ca; /* Darker blue on hover */
-        }
+        
 
         /* Content styling */
         .content {
             margin-left: 240px;
             padding: 20px;
-            background-color: #121212; /* Dark background */
+            background-color: #fff; /* Dark background */
             color: #f8f9fa;
             min-height: 100vh;
         }
 
         /* Card styling */
         .card {
-            background-color: #1f1f1f; /* Dark card background */
+            background-color: #0d6efd; /* Dark card background */
             color: #f8f9fa;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
             border: none;
@@ -50,12 +29,12 @@
             transform: scale(1.02); /* Slight zoom on hover */
         }
         .card-title {
-            color: #0dcaf0; /* Bright blue for title */
+            color: #fff; /* Bright blue for title */
         }
 
         /* Button styling */
         .btn-light {
-            color: #0dcaf0;
+            color: #fff;
             border: 1px solid #0dcaf0;
             background-color: transparent;
             transition: all 0.3s;
@@ -67,7 +46,7 @@
 
         /* Custom header styling */
         h2 {
-            color: #0dcaf0;
+            color: #0d6efd;
         }
     </style>
 </head>

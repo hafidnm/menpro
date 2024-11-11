@@ -8,6 +8,8 @@
     <style>
         body {
             background-color: #f8f9fa;
+            margin: 0;
+    padding: 0;
         }
         .container {
             background-color: white;
@@ -40,6 +42,7 @@
     </style>
 </head>
 <body onload="document.getElementById('rfid_id').focus()">
+@include('components.sidebar')
     <div class="container">
         <h2>Scan RFID</h2>
         <form action="{{ route('siswa.read') }}" method="POST">
