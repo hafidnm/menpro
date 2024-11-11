@@ -122,7 +122,7 @@
             </div>
             <!-- Image Section -->
             <div class="image-frame">
-                <img src="{{ asset('storage/SMP.jpeg') }}" alt="School Image" class="school-image">
+                <img src="{{ asset('storage/SMP.jpg') }}" alt="School Image" class="school-image">
             </div>
         </div>
     </div>
