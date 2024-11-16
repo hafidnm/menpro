@@ -37,5 +37,5 @@
     <a href="/siswa">Manajemen Siswa</a>
     <a href="/siswa/create">Tambah siswa</a>
     <a href="/siswa/scan">absen</a>
-    <a href="/siswa/dashboard">Back</a>
+
 </div>

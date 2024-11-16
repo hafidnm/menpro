@@ -78,7 +78,8 @@
                 <p><strong>NIS:</strong> {{ $siswa->nis }}</p>
                 <p><strong>Nama:</strong> {{ $siswa->nama }}</p>
                 <p><strong>Kelas:</strong> {{ $siswa->kelas }}</p>
-                <p><strong>Waktu Absen:</strong> {{ \Carbon\Carbon::now()->setTimezone('Asia/Jakarta')->locale('id')->isoFormat('dddd, D MMMM YYYY - HH:mm:ss') }}</p>
+                <p><strong>Jam Absen:</strong> {{ \Carbon\Carbon::now()->setTimezone('Asia/Jakarta')->locale('id')->isoFormat('HH:mm:ss') }}</p>
+                <p><strong>Tanggal Absen:</strong> {{ \Carbon\Carbon::now()->setTimezone('Asia/Jakarta')->locale('id')->isoFormat('dddd, D MMMM YYYY') }}</p>
             </div>
 
             <!-- Form untuk menyimpan absen ke database secara otomatis -->

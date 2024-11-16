@@ -8,7 +8,7 @@
     <style>
         /* Warna biru sesuai dengan warna sebelumnya */
         :root {
-            --primary-blue: #89CFF0;
+            --primary-blue: ;
             --biru-tua: #1e90ff;
             --text-color: #121212;
             --card-bg-color: #f8f9fa;
@@ -35,26 +35,6 @@
         .card:hover {
             transform: scale(1.02); /* Slight zoom on hover */
         }
-        .card-title {
-            color: var(); /* Biru muda untuk judul kartu */
-        }
-
-        /* Button styling */
-        .btn-light {
-            color: #ffffff;
-            border: 1px solid var(--biru-tua);
-            background-color: var(--biru-tua); /* Tombol biru muda */
-            transition: all 0.3s;
-        }
-        .btn-light:hover {
-            background-color: var(--btn-hover-color); /* Warna hover biru lebih gelap */
-            color: white;
-        }
-
-        /* Custom header styling */
-        h2 {
-            color: var(--primary-blue); /* Biru muda untuk heading utama */
-        }
     </style>
 </head>
 <body>
@@ -71,6 +51,14 @@
             </div>
 
             <div class="row mb-4">
+            <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Tanggal</h5>
+                            <p id="tanggal-display" class="card-text fs-4">-</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="card text-center">
                         <div class="card-body">
@@ -79,6 +67,31 @@
                         </div>
                     </div>
                 </div>
+                
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="tanggalModal" tabindex="-1" aria-labelledby="tanggalModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tanggalModalLabel">Masukkan Tanggal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="tanggalForm">
+                                <div class="mb-3">
+                                    <label for="tanggalInput" class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" id="tanggalInput" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
                 <div class="col-md-3">
                     <div class="card text-center">
                         <div class="card-body">
@@ -125,5 +138,30 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tanggalModal = new bootstrap.Modal(document.getElementById('tanggalModal'));
+            const tanggalDisplay = document.getElementById('tanggal-display');
+            const savedTanggal = localStorage.getItem('inputTanggal');
+
+            // Check if date already exists in localStorage
+            if (savedTanggal) {
+                tanggalDisplay.textContent = savedTanggal;
+            } else {
+                tanggalModal.show();
+            }
+
+            // Handle form submission
+            document.getElementById('tanggalForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const tanggalInput = document.getElementById('tanggalInput').value;
+                if (tanggalInput) {
+                    tanggalDisplay.textContent = tanggalInput;
+                    localStorage.setItem('inputTanggal', tanggalInput);
+                    tanggalModal.hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
