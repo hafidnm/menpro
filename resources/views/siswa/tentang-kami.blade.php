@@ -9,11 +9,11 @@
     <style>
         /* Tema Dark Mode */
         :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --highlight-color: #bb86fc; /* Warna ungu */
-            --secondary-text-color: #a0a0a0;
-            --card-bg-color: #1e1e1e;
+            --bg-color: #ffffff;
+            --text-color: #ffffff;
+            --highlight-color: #1e90ff; 
+            --secondary-text-color: #ffffff;
+            --card-bg-color: #1e90ff;
         }
 
         body {
@@ -64,7 +64,7 @@
         }
 
         .card-title {
-            color: var(--highlight-color);
+            color: var(--text-color);
             font-size: 1.2rem;
             font-weight: bold;
             margin-top: 10px;
@@ -94,9 +94,9 @@
             <!-- Developer 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev1.jpg') }}" alt="Developer 1" class="mx-auto">
+                    <img src="{{ asset('storage/developers/dev1.jpg') }}" alt="TANK" class="mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Developer 1</h5>
+                        <h5 class="card-title">Adit</h5>
                         <p class="card-text">Full Stack Developer berpengalaman dengan fokus pada pengembangan aplikasi end-to-end.</p>
                     </div>
                 </div>
@@ -104,9 +104,9 @@
             <!-- Developer 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev2.jpg') }}" alt="Developer 2" class="mx-auto">
+                    <img src="{{ asset('storage/developers/dev2.jpg') }}" alt="BOSS" class="mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Developer 2</h5>
+                        <h5 class="card-title">Lala</h5>
                         <p class="card-text">Frontend Developer dengan spesialisasi React, Vue, dan pembuatan antarmuka interaktif.</p>
                     </div>
                 </div>
@@ -114,9 +114,9 @@
             <!-- Developer 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev3.jpg') }}" alt="Developer 3" class="mx-auto">
+                    <img src="{{ asset('storage/developers/dev3.jpg') }}" alt="COPET" class="mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Developer 3</h5>
+                        <h5 class="card-title">Hafid</h5>
                         <p class="card-text">Backend Developer yang ahli dalam desain arsitektur microservices dan manajemen data skala besar.</p>
                     </div>
                 </div>
@@ -124,9 +124,9 @@
             <!-- Developer 4 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev4.jpg') }}" alt="Developer 4" class="mx-auto">
+                    <img src="{{ asset('storage/developers/dev4.jpg') }}" alt="USTAD" class="mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Developer 4</h5>
+                        <h5 class="card-title">Henry</h5>
                         <p class="card-text">UI/UX Designer dengan pendekatan user-centered design untuk pengalaman pengguna optimal.</p>
                     </div>
                 </div>
@@ -134,9 +134,9 @@
             <!-- Developer 5 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev5.jpg') }}" alt="Developer 5" class="mx-auto">
+                    <img src="{{ asset('storage/developers/dev5.jpg') }}" alt="CIDRO" class="mx-auto">
                     <div class="card-body">
-                        <h5 class="card-title">Nama Developer 5</h5>
+                        <h5 class="card-title">Jali</h5>
                         <p class="card-text">Quality Assurance Specialist yang fokus pada pengujian manual dan otomatis untuk memastikan kualitas produk.</p>
                     </div>
                 </div>

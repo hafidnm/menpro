@@ -18,7 +18,7 @@
 <style>
     /* Navbar styling */
     .navbar {
-        background-color: #1c1c1e;
+        background-color: #1c1c1e; 
         padding: 15px 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
@@ -33,7 +33,7 @@
         transition: color 0.3s;
     }
     .navbar a:hover {
-        color: #03dac5; /* Warna teal pada hover */
+        color: #1e90ff; /* Warna teal pada hover */
     }
 
     /* Icon styling */

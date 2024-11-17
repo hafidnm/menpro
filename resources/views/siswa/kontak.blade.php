@@ -1,4 +1,3 @@
-<!-- resources/views/siswa/kontak.blade.php -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,14 +6,13 @@
     <title>Kontak Sekolah - SMPN 1 Nogosari</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Tema Dark Mode */
         :root {
-            --bg-color: #121212;
+            --bg-color: #ffffff;
             --text-color: #e0e0e0;
-            --highlight-color: #bb86fc; /* Warna ungu */
-            --secondary-text-color: #a0a0a0;
-            --card-bg-color: #1e1e1e;
-            --button-color: #03dac5; /* Teal */
+            --highlight-color: #1e90ff; 
+            --secondary-text-color: #ffffff;
+            --card-bg-color: #1e90ff;
+            --button-color: #03dac5;
             --button-hover-color: #018786;
         }
 
@@ -30,7 +28,7 @@
         }
 
         h1 {
-            color: var(--highlight-color);
+            color: var(--highlight-color); /* Ubah menjadi biru */
             text-align: center;
             margin-bottom: 40px;
         }
@@ -44,7 +42,7 @@
         }
 
         .contact-info h5 {
-            color: var(--highlight-color);
+            color: white; /* Ubah menjadi putih */
         }
 
         .contact-info p {
@@ -70,14 +68,11 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     @include('components.navbar-landing')
 
-    <!-- Kontak Sekolah Section -->
     <div class="container">
         <h1>Kontak Sekolah</h1>
         
-        <!-- Informasi Kontak -->
         <div class="card contact-info">
             <h5>Alamat Sekolah</h5>
             <p>Jl. Raya Nogosari No. 123, Nogosari, Boyolali, Jawa Tengah, Indonesia</p>

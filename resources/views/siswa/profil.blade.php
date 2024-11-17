@@ -9,12 +9,12 @@
     <style>
         /* Tema Dark Mode */
         :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --highlight-color: #bb86fc; /* Ungu */
-            --secondary-text-color: #a0a0a0;
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --highlight-color: #1e90ff; /* Ungu */
+            --secondary-text-color: #000000;
             --card-bg-color: #1e1e1e;
-            --button-color: #03dac5; /* Teal */
+            --button-color: #1e90ff; /* Teal */
             --button-hover-color: #018786;
         }
 
@@ -51,7 +51,7 @@
 
         .btn-back {
             background-color: var(--button-color);
-            color: #000;
+            color: #fff;
             font-weight: bold;
             padding: 10px 20px;
             border-radius: 5px;

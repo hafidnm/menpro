@@ -12,7 +12,7 @@
             --text-color: #121212;
             --highlight-color: #000000; /* Hitam untuk aksen */
             --secondary-text-color: #333333;
-            --login-bg-color: #89CFF0; /* Biru muda untuk background kontainer login */
+            --login-bg-color: #1e90ff; /* Biru muda untuk background kontainer login */
             --button-color: #000000; /* Hitam untuk tombol login */
             --button-hover-color: #333333;
         }

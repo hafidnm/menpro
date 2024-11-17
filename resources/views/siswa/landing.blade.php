@@ -13,8 +13,8 @@
             --highlight-color: #6200ea; /* Warna ungu untuk teks dan aksen */
             --secondary-text-color: #333333;
             --card-bg-color: #f0f0f0;
-            --button-color: #89CFF0; /* Warna asli tombol login */
-            --button-hover-color: #89CFF0; /* Warna hover asli tombol login */
+            --button-color: #1e90ff; /* Warna asli tombol login */
+            --button-hover-color: #f1f1f1   ; /* Warna hover asli tombol login */
         }
 
         /* Content styling */
@@ -54,7 +54,7 @@
 
         .btn-login {
             background-color: var(--button-color); /* Warna asli tombol login */
-            color: #000000;
+            color: #ffffff;
             padding: 12px 24px;
             border-radius: 30px;
             font-weight: bold;
@@ -69,7 +69,7 @@
         
         .btn-login:hover {
             background-color: var(--button-hover-color); /* Warna hover asli */
-            color: #ffffff;
+            color: #000;
         }
         
         .image-frame {
