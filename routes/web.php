@@ -21,6 +21,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::middleware('auth')->group(function () {
 Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard'])->name('siswa.dashboard');
 
+Route::get('/siswa/sudah_absen', [SiswaController::class, 'sudahAbsen'])->name('sudah.absen');
+// Route untuk download data absensi dalam format CSV
+Route::get('/siswa/sudah_absen/download', [SiswaController::class, 'download'])->name('sudah.absen.download');
+
+
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');

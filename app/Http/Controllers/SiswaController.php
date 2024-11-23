@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Absensi;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Response;
 
 class SiswaController extends Controller
 {
@@ -146,6 +147,93 @@ class SiswaController extends Controller
             'waktu_absen' => now(),
         ]);
 
-        return redirect()->route('siswa.scan')->with('message', 'Absen berhasil disimpan!');
+        return redirect()->route('siswa.scan')->with('message', 'Absen berhasil !');
+    }
+    
+    public function sudahAbsen(Request $request)
+    {
+        // Ambil parameter filter dari request
+        $hari = $request->get('hari');
+        $tanggal = $request->get('tanggal');
+        $bulan = $request->get('bulan');
+        $tahun = $request->get('tahun');
+
+        // Query dasar untuk tabel absensi
+        $query = Absensi::query();
+
+        // Filter berdasarkan hari (1 = Minggu, 2 = Senin, dst.)
+        if ($hari) {
+            $query->whereRaw('DAYOFWEEK(waktu_absen) = ?', [$hari]);
+        }
+
+        // Filter berdasarkan tanggal
+        if ($tanggal) {
+            $query->whereDate('waktu_absen', $tanggal);
+        }
+
+        // Filter berdasarkan bulan
+        if ($bulan) {
+            $query->whereMonth('waktu_absen', $bulan);
+        }
+
+        // Filter berdasarkan tahun
+        if ($tahun) {
+            $query->whereYear('waktu_absen', $tahun);
+        }
+
+        // Ambil data yang sudah difilter
+        $absensi = $query->orderBy('waktu_absen', 'desc')->get();
+
+        // Kirim data ke view
+        return view('siswa.sudah_absen', compact('absensi'));
+    }
+
+    // Fungsi untuk download CSV
+    public function download(Request $request)
+    {
+        // Ambil parameter filter dari request
+        $hari = $request->get('hari');
+        $tanggal = $request->get('tanggal');
+        $bulan = $request->get('bulan');
+        $tahun = $request->get('tahun');
+
+        // Query dasar untuk tabel absensi
+        $query = Absensi::query();
+
+        // Filter berdasarkan hari (1 = Minggu, 2 = Senin, dst.)
+        if ($hari) {
+            $query->whereRaw('DAYOFWEEK(waktu_absen) = ?', [$hari]);
+        }
+
+        // Filter berdasarkan tanggal
+        if ($tanggal) {
+            $query->whereDate('waktu_absen', $tanggal);
+        }
+
+        // Filter berdasarkan bulan
+        if ($bulan) {
+            $query->whereMonth('waktu_absen', $bulan);
+        }
+
+        // Filter berdasarkan tahun
+        if ($tahun) {
+            $query->whereYear('waktu_absen', $tahun);
+        }
+
+        // Ambil data yang sudah difilter
+        $absensi = $query->get();
+
+        // Membuat data CSV
+        $csvData = "NIS,Nama,Kelas,Waktu Absen\n";
+
+        foreach ($absensi as $item) {
+            $csvData .= "{$item->nis},{$item->nama},{$item->kelas},{$item->waktu_absen}\n";
+        }
+
+        // Menghasilkan file CSV dan mengunduhnya
+        return Response::make($csvData, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="absensi.csv"',
+        ]);
     }
 }
