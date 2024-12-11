@@ -94,7 +94,7 @@
             <!-- Developer 1 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev1.jpg') }}" alt="TANK" class="mx-auto">
+                    <img src="{{ asset('storage/adt.jpg') }}" alt="TANK" class="mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">Adit</h5>
                         <p class="card-text">Full Stack Developer berpengalaman dengan fokus pada pengembangan aplikasi end-to-end.</p>
@@ -104,7 +104,7 @@
             <!-- Developer 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev2.jpg') }}" alt="BOSS" class="mx-auto">
+                    <img src="{{ asset('storage/ll.jpg') }}" alt="BOSS" class="mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">Lala</h5>
                         <p class="card-text">Frontend Developer dengan spesialisasi React, Vue, dan pembuatan antarmuka interaktif.</p>
@@ -114,7 +114,7 @@
             <!-- Developer 3 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev3.jpg') }}" alt="COPET" class="mx-auto">
+                    <img src="{{ asset('storage/gwl.jpg') }}" alt="COPET" class="mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">Hafid</h5>
                         <p class="card-text">Backend Developer yang ahli dalam desain arsitektur microservices dan manajemen data skala besar.</p>
@@ -124,7 +124,7 @@
             <!-- Developer 4 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev4.jpg') }}" alt="USTAD" class="mx-auto">
+                    <img src="{{ asset('storage/hendry.jpg') }}" alt="USTAD" class="mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">Henry</h5>
                         <p class="card-text">UI/UX Designer dengan pendekatan user-centered design untuk pengalaman pengguna optimal.</p>
@@ -134,7 +134,7 @@
             <!-- Developer 5 -->
             <div class="col-md-4 mb-4">
                 <div class="card p-3 developer-card">
-                    <img src="{{ asset('storage/developers/dev5.jpg') }}" alt="CIDRO" class="mx-auto">
+                    <img src="{{ asset('storage/imem.jpg') }}" alt="CIDRO" class="mx-auto">
                     <div class="card-body">
                         <h5 class="card-title">Jali</h5>
                         <p class="card-text">Quality Assurance Specialist yang fokus pada pengujian manual dan otomatis untuk memastikan kualitas produk.</p>
